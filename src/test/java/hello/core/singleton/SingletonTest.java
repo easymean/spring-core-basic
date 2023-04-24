@@ -2,9 +2,10 @@ package hello.core.singleton;
 
 import hello.core.AppConfig;
 import hello.core.member.MemberService;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class SingletonTest {
 
@@ -20,6 +21,21 @@ public class SingletonTest {
         MemberService memberService2 = appConfig.memberService();
 
         // 참조값이 다른가: 다르다 => 객체가 많이 생성된다.
-        Assertions.assertThat(memberService1).isNotSameAs(memberService2);
+        assertThat(memberService1).isNotSameAs(memberService2);
     }
+
+//    public static void main(String[] args) {
+//        SingletonService singletonService = new SingletonService(); // private으로 선언해서 호출 불가
+//    }
+
+    @Test
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")
+    void singletonServiceTest(){
+        SingletonService singletonService1 = SingletonService.getInstance();
+        SingletonService singletonService2 = SingletonService.getInstance();
+
+        assertThat(singletonService1).isSameAs(singletonService2); // 인스턴스 비교는 isSameAs
+    }
+
+
 }
