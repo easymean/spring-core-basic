@@ -12,7 +12,7 @@ import javax.annotation.PreDestroy;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class SingletonWithPrototypeTest1 {
+public class SingletonWithPrototypeTest {
 
     @Test
     void singletonClientUsePrototype(){
