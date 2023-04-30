@@ -18,7 +18,8 @@ public class AutoAppConfig {
 
     // 수동 빈등록
     // 자동보다 수동이 우선시되나 현재는 오류가 나는게 디폴트
-    @Bean(name="memoryMemberRepository")
+    //@Bean(name="memoryMemberRepository")
+    @Bean(name="memoryMemberRepository2")
     public MemberRepository memberRepository(){
         return new MemoryMemberRepository();
     }
